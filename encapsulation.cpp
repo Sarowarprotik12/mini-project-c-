@@ -28,10 +28,6 @@ int getBalance(){
 
 };
 
-
-
-
-
 int main(){
 
 pr r;
