@@ -34,8 +34,8 @@ pr r;
 r.setAccount_number(890);
 r.setBalance(20000);
 
-cout<<r.getAccount_number()<<endl;
-cout<<r.getBalance()<<endl;
+cout<<"Account number:"<<r.getAccount_number()<<endl;
+cout<<"Balance:"<<r.getBalance()<<endl;
 
     return 0;
 }
