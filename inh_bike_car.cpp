@@ -1,70 +1,73 @@
 #include <bits/stdc++.h>
 using namespace std;
-
 class car{
-  
   private:
   string model;
   
-  protected:
-  
-  int year;
-  int speed;
-  
-  
   public:
+  int year;
+  float speed;
+  string color;
   
-  car(string m,int s,int y){
+  car(string m,string c,float s,int y){
       model=m;
+      color=c;
       speed=s;
       year=y;
-      
   }
-  
-  void dis(){
-       cout<<"Car Model:"<<model<<endl;
-  }
-  void dis1(){
-     
-         cout<<"Speed Limited:"<<speed<<"cc"<<endl;
-            cout<<"Year:"<<year<<endl;
-  }
-  
+    
+     void setModel(string m) {
+        model = m;
+    }
 
+    void model1(){
+        cout<<"Car Model:"<<model<<endl;
+        
+    }
+    
+    void display(){
+         cout<<"Color:"<<color<<endl;
+         cout<<"Speed:"<<speed<<"cc"<<endl;
+         cout<<"Year:"<<year<<endl;
+        
+        
+    }
+    
+    
 };
 
 
 class bike:public car{
-  
   private:
   string modell;
-  string color;
+  
   public:
+  float price;
   
-  bike(string mo,string co,int s,int y) : car( mo,s, y){
+  bike(string mo,string c,float s,int y,float p): car(mo,c,s,y), price(p){
       modell=mo;
-      color=co;
-  }
-  
-   void dis2(){
      
-        
-      cout<<"Bike Model:"<<modell<<endl;
-         
-            cout<<"Bike Color:"<<color<<endl;
-             dis1();
-           
   }
   
+  void dis(){
+      cout<<"Bike Model:"<<modell<<endl;
+      display();
+      cout<<"Bike price:"<<price<<"Tk"<<endl;
+  }
     
 };
 
-int main (){
-    car c("Honda civic",1230,2024);
-    c.dis();
-    c.dis1();
+
+
+
+int main()
+{
+    car c("Rolls Royace","Red",1560,2024);
+    c.model1();
+    c.display();
     
-    bike b("R15M","Silver",150,2024);
-    b.dis2();
+    bike b("R15m Indonesia","Silver",150,2024,710000);
+    b.dis();
+
     return 0;
 }
