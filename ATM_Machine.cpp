@@ -103,3 +103,104 @@ int main()
 
 	return 0;
 }
+
+
+
+
+
+
+
+               another way code::::::::::::::::::::::::
+
+
+
+
+
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+void showBalance(double balance){
+  cout << fixed << setprecision(2);
+  cout<<"My current balance is:"<<"$"<<balance<<endl;
+}
+double depositBalance(double balance){
+    double depositamount;
+    cout<<"Enter amount of deposit:";
+    cin>>depositamount;
+    if(depositamount>0){
+      balance+=depositamount;
+    }else {
+      cout<<"No negative value is supported.\n";
+    }
+   
+    return balance;
+    
+}
+double withdrawBalance(double balance){
+    double withdrawamount;
+    cout<<"Enter amount of Withdraw:";
+    cin>>withdrawamount;
+    
+     if (withdrawamount > 0 && withdrawamount<= balance) {
+      balance -= withdrawamount;
+  } else {
+      cout << "Invalid withdrawal amount! Check your balance.\n";
+  }
+    return balance;
+    
+}
+
+
+
+
+
+
+
+int main() 
+{
+    double balance=200.00;
+    string pin="123";
+    string inputpin;
+    cout<<"Enter your pin:";
+    cin>>inputpin;
+    if(inputpin!=pin){
+    	cout << "Invalid PIN. Access denied." << endl;
+		return 1;
+	}
+
+    
+cout<<"----------------------------------------------------\n";
+cout<<"                Bank System                         \n";
+cout<<"----------------------------------------------------\n";
+
+int choice;
+do {
+cout<<"1.Balance cheak.\n";
+cout<<"2.Deposit Balance.\n";
+cout<<"3.Withdraw Balance.\n";
+cout<<"4.Exit\n";
+cout<<"Choose any option:";
+cin>>choice;
+switch(choice){
+    case 1:
+    showBalance(balance);
+    break;
+    case 2: balance=depositBalance(balance);
+     cout << fixed << setprecision(2);
+    cout << "My Deposit balance is: $" << balance << endl;
+    break;
+    case 3: balance=withdrawBalance(balance);
+     cout << fixed << setprecision(2);
+    cout << "After withdraw my balance is: $" << balance << endl;
+    break;
+    case 4:  cout << "THANK YOU FOR USING OUR SYSTEM!\n";
+                return 0;
+    default:cout<<"Invalid option.please try again!..\n";
+             cout<<"THANKS FOR USING OUR SYSTEM..\n";
+    
+}    
+}while (choice != 4);
+
+    return 0;
+}
